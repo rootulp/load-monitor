@@ -23,7 +23,7 @@ class App extends Component {
     return (
       <div className="App">
       <h6>History of load</h6>
-        <LineChart width={800} height={800} data={this.state.data['data']} margin={{ top: 50, bottom: 50, left:50, right:50}}>
+        <LineChart width={800} height={800} data={this.filterToLastTenMins(this.state.data['data'])} margin={{ top: 50, bottom: 50, left:50, right:50}}>
           <XAxis dataKey="time"/>
           <YAxis/>
           <Tooltip/>
@@ -34,6 +34,13 @@ class App extends Component {
         </LineChart>
       </div>
     );
+  }
+
+  filterToLastTenMins(data) {
+    const DATA_POINTS_TO_KEEP = 6 * 10 // 6 points per min * 10 mins
+    if (data !== undefined) {
+      return data.slice(-DATA_POINTS_TO_KEEP, -1)
+    }
   }
 }
 
