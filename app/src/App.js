@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { LineChart, Line } from 'recharts';
 
 class App extends Component {
   constructor(props) {
@@ -22,15 +22,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <p>
-            {JSON.stringify(this.state.data)}
-          </p>
-        </header>
+        <p>
+          {JSON.stringify(this.state.data)}
+        </p>
+        <LineChart width={400} height={400} data={this.state.data}>
+          <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+        </LineChart>
       </div>
     );
   }
