@@ -22,6 +22,6 @@ def save_load_every_minute():
     time = datetime.now().isoformat()
     load = os.getloadavg()
     app.logger.debug('Saving load {} at {}'.format(load, time))
-    store['data'].append({time, load})
+    store['data'].append({'time': time, 'load': load})
 
 save_load_every_minute()
