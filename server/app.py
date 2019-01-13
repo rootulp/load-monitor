@@ -7,7 +7,7 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 store = {}
-store['data'] = {}
+store['data'] = []
 
 
 @app.route('/data')
@@ -22,6 +22,6 @@ def save_load_every_minute():
     time = datetime.now().isoformat()
     load = os.getloadavg()
     app.logger.debug('Saving load {} at {}'.format(load, time))
-    store['data'][time] = load
+    store['data'].append({time, load})
 
 save_load_every_minute()
