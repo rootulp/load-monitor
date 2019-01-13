@@ -15,12 +15,12 @@ def data():
     global store
     return jsonify(store)
 
-def save_load_every_minute():
+def save_load_every_ten_seconds():
     global store
-    threading.Timer(5.0, save_load_every_minute).start()
+    threading.Timer(10.0, save_load_every_ten_seconds).start()
 
     time = datetime.now().isoformat()
     one_min_load, five_min_load, fifteen_min_load = os.getloadavg()
     store['data'].append({'time': time, 'one_min': one_min_load, 'five_min': five_min_load, 'fifteen_min_load': fifteen_min_load})
 
-save_load_every_minute()
+save_load_every_ten_seconds()

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { LineChart, Line, XAxis, YAxis } from 'recharts';
+import { CartesianGrid, LineChart, Line, Tooltip, Legend, XAxis, YAxis } from 'recharts';
 
 class App extends Component {
   constructor(props) {
@@ -22,10 +22,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <LineChart width={400} height={400} data={this.state.data['data']}>
+        <LineChart width={800} height={800} data={this.state.data['data']} margin={{ top: 50, bottom: 50, left:50, right:50}}>
           <XAxis dataKey="time"/>
           <YAxis/>
+          <Tooltip/>
+          <CartesianGrid strokeDasharray="3 3"/>
+          <Legend />
           <Line type="monotone" dataKey="one_min" stroke="#8884d8" />
+          <Line type="monotone" dataKey="five_min" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="fifteen_min" stroke="#8884d8" />
         </LineChart>
       </div>
     );
