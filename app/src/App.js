@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { CartesianGrid, LineChart, Line, Tooltip, Legend, ResponsiveContainer, XAxis, YAxis } from 'recharts';
+import moment from 'moment'
 
 class App extends Component {
   constructor(props) {
@@ -28,7 +29,10 @@ class App extends Component {
       <h6>History of load</h6>
       <ResponsiveContainer width="100%" height={400}>
         <LineChart width={800} height={400} data={this.filterToLastTenMins(this.state.data['data'])} margin={{ top: 50, bottom: 50, left:50, right:50}}>
-          <XAxis dataKey="time"/>
+          <XAxis
+            dataKey="time"
+            tickFormatter = {(isoTime) => moment(isoTime).fromNow()}
+          />
           <YAxis/>
           <Tooltip/>
           <CartesianGrid strokeDasharray="3 3"/>
