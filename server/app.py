@@ -20,8 +20,7 @@ def save_load_every_minute():
     threading.Timer(5.0, save_load_every_minute).start()
 
     time = datetime.now().isoformat()
-    load = os.getloadavg()
-    app.logger.debug('Saving load {} at {}'.format(load, time))
-    store['data'].append({'time': time, 'load': load})
+    one_min_load, five_min_load, fifteen_min_load = os.getloadavg()
+    store['data'].append({'time': time, 'one_min': one_min_load, 'five_min': five_min_load, 'fifteen_min_load': fifteen_min_load})
 
 save_load_every_minute()

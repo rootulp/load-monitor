@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { LineChart, Line } from 'recharts';
+import { LineChart, Line, XAxis, YAxis } from 'recharts';
 
 class App extends Component {
   constructor(props) {
@@ -22,11 +22,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>
-          {JSON.stringify(this.state.data)}
-        </p>
-        <LineChart width={400} height={400} data={this.state.data}>
-          <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+        <LineChart width={400} height={400} data={this.state.data['data']}>
+          <XAxis dataKey="time"/>
+          <YAxis/>
+          <Line type="monotone" dataKey="one_min" stroke="#8884d8" />
         </LineChart>
       </div>
     );
