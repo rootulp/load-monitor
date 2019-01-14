@@ -4,6 +4,6 @@
 3. Navigate to [http://127.0.0.1:5000/data](http://127.0.0.1:5000/data)
 
 ### start app
-1. `cd load-monitor`
+1. `cd app`
 2. `yarn install`
 3. `yarn start`
