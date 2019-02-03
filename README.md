@@ -4,7 +4,7 @@
 
 ## Screenshot
 
-<to add>
+![screenshot](/screenshot.png?raw=true)
 
 ## Run locally
 ###### start server
